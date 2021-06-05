@@ -35,7 +35,7 @@ def buid_web_page(data)
     end
     htmlbotom= "\n\t\t</ul>\n\t</section>\n</body>\n</html>" #generando en botom de la pagina
     index = htmltop + html + htmlbotom #ordenando las variables para el orden de la pagina
-File.write('index.html', index)
+    File.write('index.html', index)
 end
 
 buid_web_page(data)
