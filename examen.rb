@@ -18,7 +18,7 @@ data = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?
 def photos_count (data)
     photos = data["photos"].map{|x| x['camera']['full_name']} #buscando las camaras en el hash
     cam = ""
-    photos.each do |name|#generando
+    photos.each do |name|#generando el hash
         cam += "{#{name}}"
     end
     puts cam
