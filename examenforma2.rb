@@ -21,6 +21,7 @@ def photos_count (data)
         cam += "{#{name}}"
     end
     puts cam
+    puts photos.count
 end
 
 

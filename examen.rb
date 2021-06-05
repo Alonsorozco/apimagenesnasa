@@ -13,7 +13,7 @@ end
 
 data = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=","5jWMxIHAuIthOyF8LyIBe1pEIXKF3nfSAFbrqW5k")
 
-#metodo para conseguir los nombres de la camaras
+#metodo para conseguir los nombres de la camaras y numero de fotos
 
 def photos_count (data)
     photos = data["photos"].map{|x| x['camera']['full_name']} #buscando las camaras en el hash
@@ -22,6 +22,7 @@ def photos_count (data)
         cam += "{#{name}}"
     end
     puts cam
+    puts photos.count
 end
 
 #en esta forma solo cree un solo metodo para crear la pagina con las fotos.
@@ -39,4 +40,5 @@ def buid_web_page(data)
 end
 
 buid_web_page(data)
-#photos_count (data)
+# photos_count (data)
+
