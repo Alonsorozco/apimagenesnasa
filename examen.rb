@@ -27,13 +27,13 @@ end
 #en esta forma solo cree un solo metodo para crear la pagina con las fotos.
 
 def buid_web_page(data)
-    htmltop = "<html>\n<head>\n<link rel='stylesheet' href='style.css'>\n</head>\n\t<body>\n\t\t<header>\n\t\t\t<h1>IMAGENES DE LA NASA</h1>\n\t\t</header>\n\t\t<section>\n\t\t\t<ul> " #generando el top de pagina.
+    htmltop = "<html>\n<head>\n<link rel='stylesheet' href='style.css'>\n</head>\n<body>\n\t<header>\n\t\t<h1>IMAGENES DE LA NASA</h1>\n\t</header>\n\t<section>\n\t\t<ul> " #generando el top de pagina.
     photos = data["photos"].map{|x| x['img_src']} 
     html = ""
     photos.each do |photo|
-        html += "\n\t\t\t\t<li><img src=\"#{photo}\"><li>" #generando codigo html junto a las url de las imagenes coseguida desde la api
+        html += "\n\t\t\t<li><img src=\"#{photo}\"><li>" #generando codigo html junto a las url de las imagenes coseguida desde la api
     end
-    htmlbotom= "\n\t\t\t</ul>\n\t\t</section>\n\t</body>\n</html>" #generando en botom de la pagina
+    htmlbotom= "\n\t\t</ul>\n\t</section>\n</body>\n</html>" #generando en botom de la pagina
     index = htmltop + html + htmlbotom #ordenando las variables para el orden de la pagina
 File.write('index.html', index)
 end
